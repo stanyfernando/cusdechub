@@ -44,13 +44,7 @@
         align-items: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      }
-
-      .icon-link {
-        text-align: center;
-        text-decoration: none;
-        color: #B0BEC5;
-        transition: color 0.3s ease;
+        cursor: pointer;
       }
 
       .icon {
@@ -64,14 +58,11 @@
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
       }
 
-      .icon-link:hover {
-        color: #FFFFFF;
-      }
-
       .icon-link p {
         margin: 0;
         font-size: 16px;
         font-weight: bold;
+        color: #B0BEC5;
       }
 
       .footer {
@@ -105,31 +96,135 @@
           font-size: 14px;
         }
       }
+
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+
+      .modal-content {
+        background-color: #303030;
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 900px;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transform: scale(0.8);
+        transition: transform 0.4s ease, opacity 0.4s ease;
+      }
+
+      /* Fix iframe to fill modal better */
+      iframe {
+        flex-grow: 1;
+        border: none;
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Close button styles */
+      .close {
+        position: absolute;
+        top: -20px;
+        /* Move it up above the modal */
+        right: -20px;
+        /* Move it to the right, outside the modal */
+        color: #FFFFFF;
+        font-size: 36px;
+        /* Make it larger */
+        background-color: #ff3d3d;
+        /* Red background for better visibility */
+        border-radius: 50%;
+        padding: 5px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .close:hover {
+        background-color: #ff6666;
+        /* Slight hover effect */
+      }
+
+      .modal.show {
+        display: flex;
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .modal-content.show {
+        opacity: 1;
+        transform: scale(1);
+      }
     </style>
   </head>
   <body>
     <img src="https://i.ibb.co/jMStqjk/Untitled-1.png" alt="CUSDEC Assistant Banner" class="banner">
     <div class="icon-container">
-      <div class="icon-box">
-        <a href="https://stanyfernando.github.io/hsnfinder/" class="icon-link" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/7687/7687627.png" alt="HSN Code Finder" class="icon">
-          <p>HSN CODE FINDER</p>
-        </a>
+      <div class="icon-box" onclick="openModal('https://stanyfernando.github.io/hsnfinder/')">
+        <img src="https://cdn-icons-png.flaticon.com/512/7687/7687627.png" alt="HSN Code Finder" class="icon">
+        <p>HSN CODE FINDER</p>
       </div>
-      <div class="icon-box">
-        <a href="https://stanyfernando.github.io/warehousefinder/" class="icon-link" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/3281/3281312.png" alt="TIN & WH Finder" class="icon">
-          <p>TIN & WAREHOUSE FINDER</p>
-        </a>
+      <div class="icon-box" onclick="openModal('https://stanyfernando.github.io/warehousefinder/')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3281/3281312.png" alt="TIN & WH Finder" class="icon">
+        <p>TIN & WAREHOUSE FINDER</p>
       </div>
-      <div class="icon-box">
-        <a href="https://stanyfernando.github.io/CBBD1/" class="icon-link" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/10982/10982463.png" alt="CBBD1 Weight List" class="icon">
-          <p>CBBD1 WEIGHT LIST</p>
-        </a>
+      <div class="icon-box" onclick="openModal('https://stanyfernando.github.io/CBBD1/')">
+        <img src="https://cdn-icons-png.flaticon.com/512/10982/10982463.png" alt="CBBD1 Weight List" class="icon">
+        <p>CBBD1 WEIGHT LIST</p>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-content" id="modalContent">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <iframe id="modal-iframe" src=""></iframe>
       </div>
     </div>
     <footer class="footer"> Made by <a href="https://stanyfernando.blog" target="_blank">Stany Fernando</a>
     </footer>
+    <script>
+      function openModal(link) {
+        var modal = document.getElementById('myModal');
+        var modalContent = document.getElementById('modalContent');
+        var iframe = document.getElementById('modal-iframe');
+        iframe.src = link;
+        modal.style.display = 'flex';
+        setTimeout(function() {
+          modal.classList.add('show');
+          modalContent.classList.add('show');
+        }, 10); // Delay to allow the display change to take effect
+      }
+
+      function closeModal() {
+        var modal = document.getElementById('myModal');
+        var modalContent = document.getElementById('modalContent');
+        var iframe = document.getElementById('modal-iframe');
+        modal.classList.remove('show');
+        modalContent.classList.remove('show');
+        setTimeout(function() {
+          modal.style.display = 'none';
+          iframe.src = '';
+        }, 400); // matches the transition duration
+      }
+      window.onclick = function(event) {
+        var modal = document.getElementById('myModal');
+        if (event.target == modal) {
+          closeModal();
+        }
+      }
+    </script>
   </body>
 </html>
