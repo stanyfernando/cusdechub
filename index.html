@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUSDEC Assistant</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5253/5253968.png" type="image/png">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #212121;
+        color: #B0BEC5;
+      }
+
+      .banner {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin-bottom: 50px;
+      }
+
+      .icon-container {
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .icon-box {
+        background-color: #303030;
+        border-radius: 15px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      }
+
+      .icon-link {
+        text-align: center;
+        text-decoration: none;
+        color: #B0BEC5;
+        transition: color 0.3s ease;
+      }
+
+      .icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+
+      .icon-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+      }
+
+      .icon-link:hover {
+        color: #FFFFFF;
+      }
+
+      .icon-link p {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 12px;
+      }
+
+      .footer a {
+        text-decoration: none;
+        color: #B0BEC5;
+        transition: color 0.8s ease;
+      }
+
+      .footer a:hover {
+        color: #FFFFFF;
+      }
+
+      @media (max-width: 768px) {
+        .icon-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .icon {
+          width: 80px;
+          height: 80px;
+        }
+
+        .icon-link p {
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://i.ibb.co/jMStqjk/Untitled-1.png" alt="CUSDEC Assistant Banner" class="banner">
+    <div class="icon-container">
+      <div class="icon-box">
+        <a href="https://stanyfernando.github.io/hsnfinder/" class="icon-link" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/7687/7687627.png" alt="HSN Code Finder" class="icon">
+          <p>HSN CODE FINDER</p>
+        </a>
+      </div>
+      <div class="icon-box">
+        <a href="https://stanyfernando.github.io/warehousefinder/" class="icon-link" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/3281/3281312.png" alt="TIN & WH Finder" class="icon">
+          <p>TIN & WAREHOUSE FINDER</p>
+        </a>
+      </div>
+      <div class="icon-box">
+        <a href="https://stanyfernando.github.io/CBBD1/" class="icon-link" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/10982/10982463.png" alt="CBBD1 Weight List" class="icon">
+          <p>CBBD1 WEIGHT LIST</p>
+        </a>
+      </div>
+    </div>
+    <footer class="footer"> Made by <a href="https://stanyfernando.blog" target="_blank">Stany Fernando</a>
+    </footer>
+  </body>
+</html>
